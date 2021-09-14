@@ -1,6 +1,6 @@
 {
   "name": "wnrstore-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Official API Wrapper from WNRStore.com",
   "main": "index.js",
   "scripts": {
