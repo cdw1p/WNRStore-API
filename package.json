@@ -1,0 +1,31 @@
+{
+  "name": "wnrstore-api",
+  "version": "1.0.0",
+  "description": "Official API Wrapper from WNRStore.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cdw1p",
+  "license": "MIT",
+  "keywords": [
+    "wnrstore-api",
+    "sms-api",
+    "sms-gateway",
+    "otp-services"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdw1p/WNRStore-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cdw1p/WNRStore-API/issues"
+  },
+  "homepage": "https://github.com/cdw1p/WNRStore-API.git#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.2"
+  }
+}
