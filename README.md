@@ -38,9 +38,6 @@ getDataProduct(api_key)
 getDataOperator(api_key)
 
 // Get virtual number status
-checkNumberStatus(api_key)
-
-// Get virtual number status
 checkNumberStatus(api_key, phone_number)
 
 // Make a virtual number request
