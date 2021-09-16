@@ -6,7 +6,7 @@ const baseURL = 'https://wnrstore.com'
  */
 const getDataAccount = async (api_key) => {
   try {
-    fetch(`${baseURL}/api/developer/dataAccount?secret_key=${api_key}`)
+    return fetch(`${baseURL}/api/developer/dataAccount?secret_key=${api_key}`)
     .then(res => res.json())
     .then(response => {
       return Promise.resolve(response)
@@ -21,7 +21,7 @@ const getDataAccount = async (api_key) => {
  */
 const getDataProduct = async (api_key) => {
   try {
-    fetch(`${baseURL}/api/developer/dataProduct?secret_key=${api_key}`)
+    return fetch(`${baseURL}/api/developer/dataProduct?secret_key=${api_key}`)
     .then(res => res.json())
     .then(response => {
       return Promise.resolve(response)
@@ -36,7 +36,7 @@ const getDataProduct = async (api_key) => {
  */
 const getDataOperator = async (api_key) => {
   try {
-    fetch(`${baseURL}/api/developer/dataOperator?secret_key=${api_key}`)
+    return fetch(`${baseURL}/api/developer/dataOperator?secret_key=${api_key}`)
     .then(res => res.json())
     .then(response => {
       return Promise.resolve(response)
@@ -51,7 +51,7 @@ const getDataOperator = async (api_key) => {
  */
 const checkNumberStatus = async (api_key, phone_number) => {
   try {
-    fetch(`${baseURL}/api/developer/checkNumberStatus?secret_key=${api_key}`, {
+    return fetch(`${baseURL}/api/developer/checkNumberStatus?secret_key=${api_key}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const checkNumberStatus = async (api_key, phone_number) => {
  */
 const createOrder = async (api_key, id_product, id_operator) => {
   try {
-    fetch(`${baseURL}/api/developer/createOrder?secret_key=${api_key}`, {
+    return fetch(`${baseURL}/api/developer/createOrder?secret_key=${api_key}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ const createOrder = async (api_key, id_product, id_operator) => {
  */
 const resendOrder = async (api_key, id) => {
   try {
-    fetch(`${baseURL}/api/developer/resendOrder?secret_key=${api_key}`, {
+    return fetch(`${baseURL}/api/developer/resendOrder?secret_key=${api_key}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ const resendOrder = async (api_key, id) => {
  */
 const cancelOrder = async (api_key, id) => {
   try {
-    fetch(`${baseURL}/api/developer/cancelOrder?secret_key=${api_key}`, {
+    return fetch(`${baseURL}/api/developer/cancelOrder?secret_key=${api_key}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
