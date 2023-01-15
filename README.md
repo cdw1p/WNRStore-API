@@ -21,8 +21,7 @@ const {
   getDataOperator,
   checkNumberStatus,
   createOrder,
-  resendOrder,
-  cancelOrder
+  resendOrder
 } = require('wnrstore-api')
 
 // Initializing a variable
@@ -45,7 +44,4 @@ createOrder(api_key, id_product, id_operator)
 
 // Resend a virtual number order
 resendOrder(api_key, id_order)
-
-// Cancel a virtual number
-cancelOrder(api_key, id_order)
 ```

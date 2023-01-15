@@ -1,16 +1,17 @@
 const fetch = require('node-fetch')
-const baseURL = 'https://wnrstore.com'
+const baseURL = 'https://api.wnrstore.com'
+const apiVersion = 'v2'
 
 /**
  * @description: get account information
  */
 const getDataAccount = async (api_key) => {
   try {
-    return fetch(`${baseURL}/api/developer/dataAccount?secret_key=${api_key}`)
-    .then(res => res.json())
-    .then(response => {
-      return Promise.resolve(response)
-    })
+    return fetch(`${baseURL}/api/${apiVersion}/user/data?secret_key=${api_key}`)
+      .then(res => res.json())
+      .then(response => {
+        return Promise.resolve(response)
+      })
   } catch(err) {
     throw new Error(err.message)
   }
@@ -21,11 +22,11 @@ const getDataAccount = async (api_key) => {
  */
 const getDataProduct = async (api_key) => {
   try {
-    return fetch(`${baseURL}/api/developer/dataProduct?secret_key=${api_key}`)
-    .then(res => res.json())
-    .then(response => {
-      return Promise.resolve(response)
-    })
+    return fetch(`${baseURL}/api/${apiVersion}/product/data?secret_key=${api_key}`)
+      .then(res => res.json())
+      .then(response => {
+        return Promise.resolve(response)
+      })
   } catch(err) {
     throw new Error(err.message)
   }
@@ -36,11 +37,11 @@ const getDataProduct = async (api_key) => {
  */
 const getDataOperator = async (api_key) => {
   try {
-    return fetch(`${baseURL}/api/developer/dataOperator?secret_key=${api_key}`)
-    .then(res => res.json())
-    .then(response => {
-      return Promise.resolve(response)
-    })
+    return fetch(`${baseURL}/api/${apiVersion}/operator/data?secret_key=${api_key}`)
+      .then(res => res.json())
+      .then(response => {
+        return Promise.resolve(response)
+      })
   } catch(err) {
     throw new Error(err.message)
   }
@@ -51,17 +52,11 @@ const getDataOperator = async (api_key) => {
  */
 const checkNumberStatus = async (api_key, phone_number) => {
   try {
-    return fetch(`${baseURL}/api/developer/checkNumberStatus?secret_key=${api_key}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ phone_number })
-    })
-    .then(res => res.json())
-    .then(response => {
-      return Promise.resolve(response)
-    })
+    return fetch(`${baseURL}/api/${apiVersion}/order/data?phone_number=${phone_number}&secret_key=${api_key}`)
+      .then(res => res.json())
+      .then(response => {
+        return Promise.resolve(response)
+      })
   } catch(err) {
     throw new Error(err.message)
   }
@@ -72,7 +67,7 @@ const checkNumberStatus = async (api_key, phone_number) => {
  */
 const createOrder = async (api_key, id_product, id_operator) => {
   try {
-    return fetch(`${baseURL}/api/developer/createOrder?secret_key=${api_key}`, {
+    return fetch(`${baseURL}/api/${apiVersion}/order/create?secret_key=${api_key}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -93,28 +88,7 @@ const createOrder = async (api_key, id_product, id_operator) => {
  */
 const resendOrder = async (api_key, id) => {
   try {
-    return fetch(`${baseURL}/api/developer/resendOrder?secret_key=${api_key}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ id })
-    })
-    .then(res => res.json())
-    .then(response => {
-      return Promise.resolve(response)
-    })
-  } catch(err) {
-    throw new Error(err.message)
-  }
-}
-
-/**
- * @description: cancel a virtual number
- */
-const cancelOrder = async (api_key, id) => {
-  try {
-    return fetch(`${baseURL}/api/developer/cancelOrder?secret_key=${api_key}`, {
+    return fetch(`${baseURL}/api/${apiVersion}/order/resend?secret_key=${api_key}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -136,6 +110,5 @@ module.exports = {
   getDataOperator,
   checkNumberStatus,
   createOrder,
-  resendOrder,
-  cancelOrder
+  resendOrder
 }
